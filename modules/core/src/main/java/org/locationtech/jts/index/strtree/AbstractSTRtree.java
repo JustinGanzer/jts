@@ -21,6 +21,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
+import com.google.j2objc.annotations.AutoreleasePool;
 import org.locationtech.jts.index.ItemVisitor;
 import org.locationtech.jts.util.Assert;
 
@@ -276,7 +277,7 @@ public abstract class AbstractSTRtree implements Serializable {
 
   private void queryInternal(Object searchBounds, AbstractNode node, List matches) {
     List childBoundables = node.getChildBoundables();
-    for (int i = 0; i < childBoundables.size(); i++) {
+    for (@AutoreleasePool int i = 0; i < childBoundables.size(); i++) {
       Boundable childBoundable = (Boundable) childBoundables.get(i);
       if (! getIntersectsOp().intersects(childBoundable.getBounds(), searchBounds)) {
         continue;
@@ -295,7 +296,7 @@ public abstract class AbstractSTRtree implements Serializable {
 
   private void queryInternal(Object searchBounds, AbstractNode node, ItemVisitor visitor) {
     List childBoundables = node.getChildBoundables();
-    for (int i = 0; i < childBoundables.size(); i++) {
+    for (@AutoreleasePool int i = 0; i < childBoundables.size(); i++) {
       Boundable childBoundable = (Boundable) childBoundables.get(i);
       if (! getIntersectsOp().intersects(childBoundable.getBounds(), searchBounds)) {
         continue;

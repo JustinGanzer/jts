@@ -14,6 +14,7 @@
  */
 package org.locationtech.jts.geomgraph.index;
 
+import com.google.j2objc.annotations.Weak;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Envelope;
 import org.locationtech.jts.geomgraph.Edge;
@@ -38,6 +39,7 @@ import org.locationtech.jts.geomgraph.Edge;
  */
 public class MonotoneChainEdge {
 
+  @Weak
   Edge e;
   Coordinate[] pts; // cache a reference to the coord array, for efficiency
   // the lists of start/end indexes of the monotone chains.

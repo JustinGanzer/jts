@@ -17,6 +17,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import com.google.j2objc.annotations.AutoreleasePool;
 import org.locationtech.jts.algorithm.LineIntersector;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.impl.CoordinateArraySequence;
@@ -130,7 +131,7 @@ public class NodedSegmentString
    */
   public void addIntersections(LineIntersector li, int segmentIndex, int geomIndex)
   {
-    for (int i = 0; i < li.getIntersectionNum(); i++) {
+    for (@AutoreleasePool int i = 0; i < li.getIntersectionNum(); i++) {
       addIntersection(li, segmentIndex, geomIndex, i);
     }
   }

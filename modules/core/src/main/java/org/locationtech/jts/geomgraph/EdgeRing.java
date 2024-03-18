@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.google.j2objc.annotations.Weak;
 import org.locationtech.jts.algorithm.Orientation;
 import org.locationtech.jts.algorithm.PointLocation;
 import org.locationtech.jts.geom.Coordinate;
@@ -43,7 +44,7 @@ public abstract class EdgeRing {
   private Label label = new Label(Location.NONE); // label stores the locations of each geometry on the face surrounded by this ring
   private LinearRing ring;  // the ring created for this EdgeRing
   private boolean isHole;
-  private EdgeRing shell;   // if non-null, the ring is a hole and this EdgeRing is its containing shell
+  @Weak private EdgeRing shell;   // if non-null, the ring is a hole and this EdgeRing is its containing shell
   private ArrayList holes = new ArrayList(); // a list of EdgeRings which are holes in this EdgeRing
 
   protected GeometryFactory geometryFactory;

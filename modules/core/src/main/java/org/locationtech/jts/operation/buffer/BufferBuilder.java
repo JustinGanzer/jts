@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+import com.google.j2objc.annotations.AutoreleasePool;
 import org.locationtech.jts.algorithm.LineIntersector;
 import org.locationtech.jts.algorithm.RobustLineIntersector;
 import org.locationtech.jts.geom.Coordinate;
@@ -187,7 +188,7 @@ class BufferBuilder
 // DEBUGGING ONLY
 //BufferDebug.saveEdges(nodedEdges, "run" + BufferDebug.runCount + "_nodedEdges");
 
-    for (Iterator i = nodedSegStrings.iterator(); i.hasNext(); ) {
+    for (@AutoreleasePool Iterator i = nodedSegStrings.iterator(); i.hasNext(); ) {
       SegmentString segStr = (SegmentString) i.next();
       
       /**
